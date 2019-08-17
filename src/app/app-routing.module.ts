@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/shared/services/auth-guard/auth.guard';
+import { HomeComponent } from './modules/shared/components/home/home.component';
 
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'menu',
+    redirectTo: 'home',
     //canActivate: [AuthGuard]
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'joinflow',
     loadChildren: () => import('./modules/joinflow/join-flow.module').then(m => m.JoinFlowModule)
-  },
-  {
-    path: 'menu',
-    loadChildren: () => import('./modules/menu/menu.module').then(m => m.MenuModule)
   },
   {
     path: 'your-children',

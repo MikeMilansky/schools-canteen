@@ -6,6 +6,7 @@ import { LinkService } from './services/link-service/link-service';
 import { AuthService } from './services/auth-service/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
 
 const declarations = [
 ];
@@ -25,7 +26,7 @@ const deps = [
 ];
 
 @NgModule({
-  declarations: [...declarations],
+  declarations: [...declarations, HomeComponent],
   exports: [...declarations, ...deps],
   providers: [...providers],
   imports: [...deps]
