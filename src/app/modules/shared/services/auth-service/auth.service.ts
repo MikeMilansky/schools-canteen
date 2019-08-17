@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { map, catchError} from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { appSettings } from 'src/app/app.settings';
 import { ILoginForm } from '../../interfaces/login-form';
+import { WorkflowTypes } from '../../enums/workflow-types';
+
+const defaultLogin = {
+  role: WorkflowTypes.PARENT
+};
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +20,16 @@ export class AuthService {
 
   public login(fromData: ILoginForm): Observable<any> {
    // return this.http.post<any>(this.getLink('test'), {});
-   return of('test');
+   return of({})
+      .pipe(
+        map(() => {
+            return defaultLogin;
+        }),
+        catchError((err: HttpErrorResponse) => {
+          console.log(err);
+          return of(defaultLogin);
+        })
+      );
   }
 
   constructor(private http: HttpClient) { }
