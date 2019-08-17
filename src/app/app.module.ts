@@ -6,7 +6,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptors } from './modules/shared/services/auth-interceptors/auth-interceptors';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({positionClass: 'toast-bottom-right'}),
   ],

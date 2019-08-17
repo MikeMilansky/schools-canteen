@@ -7,19 +7,18 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthInterceptors implements HttpInterceptor {
 
   constructor() {}
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    request = request.clone({
-      setHeaders: {
-        'Access-Control-Allow-Origin': '*'
-      }
+    const clonedRequest = request.clone({
+        headers: request.headers.set('Access-Control-Allow-Origin', '*')
     });
-    return next.handle(request);
+
+    console.log("new headers", clonedRequest.headers.keys());
+
+    return next.handle(clonedRequest);
   }
 }

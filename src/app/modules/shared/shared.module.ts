@@ -6,7 +6,6 @@ import { FeatureFlagGuard } from './services/feature-flag-guard/feature-flag.gua
 import { LinkService } from './services/link-service/link-service';
 import { AuthService } from './services/auth-service/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 
 const declarations = [
@@ -23,7 +22,6 @@ const providers = [
 const deps = [
   CommonModule,
   FormsModule,
-  HttpClientModule,
   ReactiveFormsModule,
 ];
 
