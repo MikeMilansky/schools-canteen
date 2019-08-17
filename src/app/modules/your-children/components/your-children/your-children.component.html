@@ -1,1 +1,19 @@
-<p>your-children works!</p>
+<div class="">
+    <div class="yc-card card" *ngFor="let student of mockArray">
+        <div class="card-body yc-card-body" [routerLink]="[student.id,'student-menu']">
+            <div class="yc-img">
+                <img src="assets/img/user-placeholder.jpg" class="yc-picture">
+            </div>
+            <div class="yc-data">
+                <ul>
+                    <li>{{student.name}}</li>
+                    <li>{{student.surname}}</li>
+                    <li>{{student.moneyBalance}}</li>
+                    <li>{{student.class}}</li>
+                    <li>{{student.school}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
