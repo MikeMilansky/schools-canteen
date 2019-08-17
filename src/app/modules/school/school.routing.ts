@@ -10,6 +10,10 @@ export const routes: Routes = [
     component: SchoolComponent,
     children: [
       {
+        redirectTo:'home',
+        path: '',
+      },
+      {
         component: MainMenuComponent,
         path: 'home',
       },

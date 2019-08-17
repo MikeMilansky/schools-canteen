@@ -3,7 +3,8 @@
 }
 
 .yc-card {
-    margin: 10px;
+    margin: 10px auto;
+    max-width: 500px;
     cursor: pointer;
     &:hover {
         background: #eee;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { IStudent } from '../../interfaces/IStudent';
 import { HttpClient } from '@angular/common/http';
 

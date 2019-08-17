@@ -1,19 +1,12 @@
-<div class="">
     <div class="yc-card card" *ngFor="let student of studentsArray">
         <div class="card-body yc-card-body" [routerLink]="[student.id,'student-menu']">
             <div class="yc-img">
                 <img src="assets/img/user-placeholder.jpg" class="yc-picture">
             </div>
             <div class="yc-data">
-                <ul>
-                    <li>{{student.Name}}</li>
-                    <li>{{student.Surname}}</li>
-                    <li>{{student.MoneyBalance}}</li>
-                    <li>{{student.Class}}</li>
-                    <li>{{student.School}}</li>
-                </ul>
+                    <h3>{{student.Name}} {{student.Surname}}</h3>
+                    <span>Школа: {{student.School}}, Класс: {{student.Class}}</span>
+                    <!-- <li>{{student.MoneyBalance}}</li> -->
             </div>
         </div>
     </div>
-</div>
-
