@@ -1,0 +1,8 @@
+<div *ngFor="let classRoom of classList">
+  <div>
+    {{ classRoom | json }}
+    <div *ngFor="let item of classRoom.items">
+      {{ item | json }}
+    </div>
+  </div>
+</div>
