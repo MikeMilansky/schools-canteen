@@ -1,0 +1,24 @@
+:host {
+    flex: 1;
+}
+
+.yc-card {
+    margin: 10px;
+}
+
+.yc-picture {
+    height: 50px;
+    width: auto;
+}
+
+.yc-card-body {
+    display: flex;
+}
+
+.yc-img {
+    flex: 1;
+}
+
+.yc-data {
+    flex: 3;
+}
