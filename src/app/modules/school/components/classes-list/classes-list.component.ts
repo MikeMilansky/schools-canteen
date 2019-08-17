@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassesListComponent implements OnInit {
 
+  public classList: [] = [];
   constructor() { }
 
   ngOnInit() {
+    this.initData();
+
   }
 
+  public initData(): void {
+    this.classList = [];
+  }
 }
