@@ -1,6 +1,21 @@
 {
+  "author": " ",
   "name": "schools-canteen",
   "version": "0.0.0",
+  "description": " ",
+  "license": "MIT",
+  "repository": "nikkaktus24/schools-canteen",
+  "bugs": "https://github.com/nikkaktus24/schools-canteen/issue",
+  "private": true,
+  "files": [
+    "build/",
+    "README.md"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test"
+    }
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +24,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^8.2.2",
     "@angular/cdk": "^8.1.3",
