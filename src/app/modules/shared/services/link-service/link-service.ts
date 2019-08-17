@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LinkService {
-  public static joinFlow: JoinFlowLinks = new JoinFlowLinks();
+  public joinFlow: JoinFlowLinks;
 
   constructor() {
-
+    this.joinFlow = new JoinFlowLinks();
   }
 }
