@@ -1,22 +1,100 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ILoginForm } from '../../interfaces/login-form';
-import { WorkflowTypes } from '../../enums/workflow-types';
-import { ILogin } from '../../interfaces/login';
+import { HttpClient } from '@angular/common/http';
 import { getLink } from 'src/app/utils/get-link';
-import { appSettings } from 'src/app/app.settings';
+import { IDay } from '../../interfaces/day';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenuService {
-  public get(fromData?: ILoginForm): Observable<ILogin> {
-    return this.http.get<any>(getLink('api/v1/menu/getMenu'))
+  public get(): Observable<IDay[]> {
+    return this.http.get<void>(getLink('api/v1/menu/getMenu'))
       .pipe(
         map((response: any) => {
-          return response;
+          return [
+            {
+              id: 1,
+              complex: [{
+                id: 1,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              },
+              {
+                id: 2,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              }],
+              date: '24',
+            },
+            {
+              id: 2,
+              complex: [{
+                id: 1,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              },
+              {
+                id: 2,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              }],
+              date: '24',
+            },
+            {
+              id: 3,
+              complex: [{
+                id: 1,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              },
+              {
+                id: 2,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              }],
+              date: '24',
+            },
+            {
+              id: 4,
+              complex: [{
+                id: 1,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              },
+              {
+                id: 2,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              }],
+              date: '24',
+            },
+            {
+              id: 5,
+              complex: [{
+                id: 1,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              },
+              {
+                id: 2,
+                title: 'test',
+                desc: 'test',
+                price: 1000
+              }],
+              date: '24',
+            }
+          ];
         })
       );
   }

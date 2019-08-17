@@ -1,4 +1,4 @@
 export enum WorkflowTypes {
-  SCHOOL,
+  SCHOOL = 1,
   YOURCHILDREN
 }

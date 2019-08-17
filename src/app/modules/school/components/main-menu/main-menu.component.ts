@@ -9,10 +9,7 @@ import { MenuService } from 'src/app/modules/shared/services/menu/menu.service';
 export class MainMenuComponent implements OnInit {
 
   public menuList: [] = [];
-  constructor(
-    private cdRef: ChangeDetectorRef,
-    private menuService: MenuService,
-  ) {
+  constructor(private menuService: MenuService) {
   }
 
   ngOnInit() {
@@ -20,9 +17,6 @@ export class MainMenuComponent implements OnInit {
   }
 
   public initData(): void {
-    // this.subscriptions.add([
-
-    // ]);
     this.menuService.get().subscribe((result: any) => {
       this.menuList = result;
     });

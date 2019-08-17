@@ -1,5 +1,3 @@
-<div class="app-school-menu">
-  <div *ngFor="let menu of menuList">
-    {{ menu | json }}
-  </div>
+<div class="school-menu">
+  <app-school-card [menu]="menu" *ngFor="let menu of menuList"></app-school-card>
 </div>
