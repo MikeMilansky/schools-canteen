@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { JoinFlowModule } from './modules/joinflow/join-flow.module';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,6 @@ import { SharedModule } from './modules/shared/shared.module';
     BrowserModule,
     SharedModule,
     AppRoutingModule
-  ],
-  exports: [
-    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
