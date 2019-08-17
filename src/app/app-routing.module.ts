@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/shared/services/auth-guard/auth.guard';
 import { HomeComponent } from './modules/shared/components/home/home.component';
+import { FeatureFlagGuard } from './modules/shared/services/feature-flag-guard/feature-flag.guard';
 
 
 const routes: Routes = [
@@ -9,11 +10,11 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'home',
-    //canActivate: [AuthGuard]
   },
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard, FeatureFlagGuard]
   },
   {
     path: 'joinflow',
@@ -26,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

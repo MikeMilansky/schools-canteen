@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/modules/shared/services/auth-service/auth.service';
+import { ILogin } from 'src/app/modules/shared/interfaces/login';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,10 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private authSerivce: AuthService) { }
 
   public onSubmit(): void {
-    this.authSerivce.login(this.loginGroup.value);
+    this.authSerivce.login(this.loginGroup.value)
+      .subscribe((response: ILogin) => {
+
+      });
   }
 
   public ngOnInit(): void {

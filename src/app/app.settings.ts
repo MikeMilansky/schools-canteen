@@ -1,3 +1,3 @@
 export const appSettings = {
-  apiLink: '',
+  apiLink: 'https://schools-canteen-be.azurewebsites.net',
 };
