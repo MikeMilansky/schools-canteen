@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { appSettings } from 'src/app/app.settings';
+import { ILoginForm } from '../../interfaces/login-form';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,9 @@ export class AuthService {
     return `${appSettings.apiLink}/${link}`;
   }
 
-  public login(): Observable<any> {
-    return this.http.post<any>(this.getLink('test'), {});
+  public login(fromData: ILoginForm): Observable<any> {
+   // return this.http.post<any>(this.getLink('test'), {});
+   return of('test');
   }
 
   constructor(private http: HttpClient) { }
