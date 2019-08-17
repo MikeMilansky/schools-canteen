@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'menu',
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'joinflow',
@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'menu',
     loadChildren: () => import('./modules/menu/menu.module').then(m => m.MenuModule)
+  },
+  {
+    path: 'your-children',
+    loadChildren: () => import('./modules/your-children/your-children.module').then(m => m.YourChildrenModule)
   },
 ];
 
