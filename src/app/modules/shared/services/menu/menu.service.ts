@@ -8,24 +8,14 @@ import { ILogin } from '../../interfaces/login';
 import { getLink } from 'src/app/utils/get-link';
 import { appSettings } from 'src/app/app.settings';
 
-const defaultLogin = {
-  role: appSettings.workflowType
-};
-
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private loginData$: BehaviorSubject<ILogin> = new BehaviorSubject(null);
-  public get loginData(): Observable<ILogin> {
-    return this.loginData$;
-  }
-
-  public login(fromData: ILoginForm): Observable<ILogin> {
-    return this.http.post<any>(getLink('api/v1/login'), fromData)
+export class MenuService {
+  public get(fromData?: ILoginForm): Observable<ILogin> {
+    return this.http.get<any>(getLink('api/v1/menu/getMenu'))
       .pipe(
-        map((response: ILogin) => {
-          this.loginData$.next(response);
+        map((response: any) => {
           return response;
         })
       );
