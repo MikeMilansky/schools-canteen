@@ -4,6 +4,8 @@ import { AuthGuard } from './services/auth-guard/auth.guard';
 import { FeatureFlagService } from './services/feature-flag/feature-flag.service';
 import { LinkService } from './services/link-service/link-service';
 import { AuthService } from './services/auth-service/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 const declarations = [
 ];
@@ -17,6 +19,9 @@ const providers = [
 
 const deps = [
   CommonModule,
+  FormsModule,
+  HttpClientModule,
+  ReactiveFormsModule,
 ];
 
 @NgModule({

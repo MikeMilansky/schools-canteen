@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/modules/shared/services/auth-service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,24 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public loginGroup: FormGroup;
+  public loginControl: FormControl;
+  public passwordControl: FormControl;
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder, private authSerivce: AuthService) { }
+
+  public onSubmit(): void {
+    this.authSerivce.login(this.loginGroup.value);
+  }
+
+  public ngOnInit(): void {
+    this.loginControl = new FormControl();
+    this.passwordControl = new FormControl();
+
+    this.loginGroup = this.fb.group({
+      login: this.loginControl,
+      passowrd: this.passwordControl,
+    });
   }
 
 }
