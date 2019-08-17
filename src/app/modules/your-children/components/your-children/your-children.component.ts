@@ -9,30 +9,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class YourChildrenComponent implements OnInit {
 
-  public mockArray: IStudent[] = [
-    {
-      id: 1,
-      name: "Ivan",
-      surname: "number",
-      moneyBalance: 100,
-      class: "number",
-      school: "number"
-    },
-    {
-      id: 2,
-      name: "Andrey",
-      surname: "number",
-      moneyBalance: 100,
-      class: "number",
-      school: "number"
-    }
-  ];
+  public studentsArray: IStudent[];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get('https://schools-canteen-be.azurewebsites.net/api/v1/students/getAll')
-    .subscribe((response)=>console.log(response))
+    .subscribe((response: IStudent[])=>
+      {
+        this.studentsArray = response;
+      }
+    )
 
   }
 

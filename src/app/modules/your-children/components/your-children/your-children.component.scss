@@ -4,6 +4,10 @@
 
 .yc-card {
     margin: 10px;
+    cursor: pointer;
+    &:hover {
+        background: #eee;
+    }
 }
 
 .yc-picture {

@@ -1,8 +1,8 @@
 export interface IStudent {
-    id: number,
-    name: string,
-    surname: string,
-    moneyBalance: number,
-    class: string,
-    school: string
+    Id: number,
+    Name: string,
+    Surname: string,
+    MoneyBalance: number,
+    Class: string,
+    School: string
 }
