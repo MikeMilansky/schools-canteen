@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     return false;
   }
 
-  constructor(private linkService: LinkService, private router: Router,) {
+  constructor(private linkService: LinkService, private router: Router) {
 
   }
 }

@@ -12,21 +12,21 @@ const defaultLogin = {
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class MenuService {
   private getLink(link: string): string {
     return `${appSettings.apiLink}/${link}`;
   }
 
-  public login(fromData: ILoginForm): Observable<any> {
+  public get(): Observable<any> {
    // return this.http.post<any>(this.getLink('test'), {});
    return of({})
       .pipe(
         map(() => {
-            return defaultLogin;
+            return of({});
         }),
         catchError((err: HttpErrorResponse) => {
           console.log(err);
-          return of(defaultLogin);
+          return of({});
         })
       );
   }
