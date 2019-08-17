@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/modules/shared/services/auth-service/auth.s
 import { ILogin } from 'src/app/modules/shared/interfaces/login';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { LinkService } from 'src/app/modules/shared/services/link-service/link-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +19,17 @@ export class LoginComponent implements OnInit {
   public loginControl: FormControl;
   public passwordControl: FormControl;
 
-  constructor(private fb: FormBuilder, private authSerivce: AuthService, private toastr: ToastrService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authSerivce: AuthService,
+    private toastr: ToastrService
+    ) { }
 
   public onSubmit(): void {
     this.authSerivce.login(this.loginGroup.value)
       .subscribe((response: ILogin) => {
-
+        this.router.navigateByUrl(LinkService.home());
       }, ((error: HttpErrorResponse) => {
         this.toastr.error('Unexpected Error');
         console.error(error);

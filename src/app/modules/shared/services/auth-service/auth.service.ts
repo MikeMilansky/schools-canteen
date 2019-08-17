@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { ILoginForm } from '../../interfaces/login-form';
 import { WorkflowTypes } from '../../enums/workflow-types';
 import { ILogin } from '../../interfaces/login';
 import { getLink } from 'src/app/utils/get-link';
-import { appSettings } from 'src/app/app.settings';
+import { StorageService } from '../storage-service/storage.service';
 
 const defaultLogin = {
-  role: appSettings.workflowType
+  role: WorkflowTypes.YOURCHILDREN
 };
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private loginData$: BehaviorSubject<ILogin> = new BehaviorSubject(null);
+  private loginData$: BehaviorSubject<ILogin>;
+
   public get loginData(): Observable<ILogin> {
     return this.loginData$;
   }
@@ -24,12 +25,14 @@ export class AuthService {
   public login(fromData: ILoginForm): Observable<ILogin> {
     return this.http.post<any>(getLink('api/v1/login'), fromData)
       .pipe(
-        map((response: ILogin) => {
+        tap((response: ILogin) => {
+          StorageService.set<ILogin>('USER', response);
           this.loginData$.next(response);
-          return response;
         })
       );
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.loginData$ = new BehaviorSubject(null);
+   }
 }

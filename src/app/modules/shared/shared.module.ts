@@ -4,7 +4,6 @@ import { AuthGuard } from './services/auth-guard/auth.guard';
 import { FeatureFlagService } from './services/feature-flag/feature-flag.service';
 import { FeatureFlagGuard } from './services/feature-flag-guard/feature-flag.guard';
 import { LinkService } from './services/link-service/link-service';
-import { AuthService } from './services/auth-service/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 
@@ -16,7 +15,6 @@ const providers = [
   LinkService,
   FeatureFlagService,
   FeatureFlagGuard,
-  AuthService,
 ];
 
 const deps = [

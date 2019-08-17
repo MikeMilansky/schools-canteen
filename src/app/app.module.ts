@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptors } from './modules/shared/services/auth-interceptors/auth-interceptors';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthService } from './modules/shared/services/auth-service/auth.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptors,
       multi: true
-    }
+    },
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

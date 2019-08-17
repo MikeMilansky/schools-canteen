@@ -1,16 +1,24 @@
 import { JoinFlowLinks } from './links/join-flow';
 import { Injectable } from '@angular/core';
-import { SchoolLinks } from './links/school';
+import { SchoolFlowLinks } from './links/school-flow';
+import { YourChildrenFlowLinks } from './links/your-children-flow';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LinkService {
   public joinFlow: JoinFlowLinks;
-  public school: SchoolLinks;
+  public schoolFlow: SchoolFlowLinks;
+  public yourChildrenFlow: YourChildrenFlowLinks;
+
+
+  public static home(): string {
+    return 'home';
+  }
 
   constructor() {
-    this.school = new SchoolLinks();
     this.joinFlow = new JoinFlowLinks();
+    this.schoolFlow = new SchoolFlowLinks();
+    this.yourChildrenFlow = new YourChildrenFlowLinks();
   }
 }
