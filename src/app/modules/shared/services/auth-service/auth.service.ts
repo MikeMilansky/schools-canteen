@@ -28,7 +28,7 @@ export class AuthService {
     return this.http.post<any>(getLink('api/v1/login'), fromData)
       .pipe(
         tap((response: ILogin) => {
-          response.Role = WorkflowTypes.YOURCHILDREN;
+          response.Role = fromData.login === 'school' ? WorkflowTypes.SCHOOL : WorkflowTypes.YOURCHILDREN;
           StorageService.set<ILogin>('USER', response);
           this.loginData$.next(response);
         })

@@ -10,7 +10,8 @@ import { ILogin } from '../../interfaces/login';
 export class RoleGuard implements CanActivate {
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (StorageService.get<ILogin>('USER').Role === route.data.role) {
+    const currentUser: ILogin = StorageService.get<ILogin>('USER');
+    if (currentUser && currentUser.Role === route.data.role) {
       return true;
     } else {
       this.router.navigateByUrl(LinkService.home());
