@@ -8,12 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptors } from './modules/shared/services/auth-interceptors/auth-interceptors';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './modules/shared/services/auth-service/auth.service';
-import { NotFoundComponent } from './modules/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
   ],
   imports: [
     BrowserModule,

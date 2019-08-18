@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/shared/services/auth-guard/auth.guard';
 import { HomeComponent } from './modules/shared/components/home/home.component';
 import { FeatureFlagGuard } from './modules/shared/services/feature-flag-guard/feature-flag.guard';
+import { RoleGuard } from './modules/shared/services/role-guard/role.guard';
+import { WorkflowTypes } from './modules/shared/enums/workflow-types';
+import { NotFoundComponent } from './modules/shared/components/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -22,12 +25,20 @@ const routes: Routes = [
   },
   {
     path: 'your-children',
-    loadChildren: () => import('./modules/your-children/your-children.module').then(m => m.YourChildrenModule)
+    loadChildren: () => import('./modules/your-children/your-children.module').then(m => m.YourChildrenModule),
+    canActivate: [RoleGuard],
+    data: {role: WorkflowTypes.YOURCHILDREN}
   },
   {
     path: 'school',
-    loadChildren: () => import('./modules/school/school.module').then(m => m.SchoolModule)
+    loadChildren: () => import('./modules/school/school.module').then(m => m.SchoolModule),
+    canActivate: [RoleGuard],
+    data: {role: WorkflowTypes.SCHOOL}
   },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  }
 ];
 
 @NgModule({
