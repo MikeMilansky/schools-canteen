@@ -25,6 +25,10 @@ export class ClassesListComponent implements OnInit {
     this.initData();
   }
 
+  public onPrint(): void {
+    window.print();
+  }
+
   public initData(): void {
     this.classList = [
       {

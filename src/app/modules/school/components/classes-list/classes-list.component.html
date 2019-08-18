@@ -1,6 +1,11 @@
 <div>
   <app-school-header></app-school-header>
   <div class="school-menu-card">
+    <div>
+        <button (click)="onPrint()" class="btn btn-primary">
+            Распечатать
+        </button>
+    </div>
     <div *ngFor="let classRoom of classList">
       <div class="app-class-room card">
         <span>{{ classRoom.name }}</span>
