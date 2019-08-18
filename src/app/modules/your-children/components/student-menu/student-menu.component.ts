@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-student-menu',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('https://schools-canteen-be.azurewebsites.net/api/v1/menu/getMenu')
+    .subscribe((response: any)=>
+      {
+        console.log(response)
+      }
+    )
   }
 
 }
