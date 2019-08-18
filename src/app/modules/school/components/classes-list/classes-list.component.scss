@@ -2,3 +2,14 @@
   margin: 20px 0;
   display: block;
 }
+
+.school-list {
+  width: 100%;
+}
+.school-list__header {
+  display: flex;
+  justify-content: flex-end;
+}
+.school-list {
+  margin-top: 20px;
+}

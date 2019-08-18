@@ -1,13 +1,21 @@
-<div class="school-menu">
-  <app-school-header></app-school-header>
-  <div class="school-menu__header">
-    <button class="btn btn-primary" (click)="updateMenu()">
-      Обновить меню
-    </button>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+        <app-school-header></app-school-header>
+    </div>
+    <div class="col-9">
+        <div class="school-menu">
+            <div class="school-menu__header">
+                <button class="btn btn-primary" (click)="updateMenu()">
+                  Обновить меню
+                </button>
+              </div>
+              <app-school-card
+                 class="school-menu-card"
+                 [menu]="menu"
+                 *ngFor="let menu of menuList"
+                ></app-school-card>
+        </div>
+    </div>
   </div>
-  <app-school-card
-     class="school-menu-card"
-     [menu]="menu"
-     *ngFor="let menu of menuList"
-    ></app-school-card>
 </div>

@@ -1,11 +1,20 @@
-<div>
-  <app-school-header></app-school-header>
-  <div>
-      <button (click)="onPrint()" class="btn btn-primary">
-          Распечатать
-      </button>
-  </div>
-  <div *ngFor="let classRoom of classList">
-    <app-class-card class="school-menu-card" [item]="classRoom"></app-class-card>
+<div class="container">
+    <div class="row">
+      <div class="col-3">
+          <app-school-header></app-school-header>
+      </div>
+      <div class="col-9">
+          <div class="school-list">
+            <div class="school-list__header">
+                <button (click)="onPrint()" class="btn btn-primary">
+                    Распечатать
+                </button>
+            </div>
+            <div *ngFor="let classRoom of classList">
+              <app-class-card class="school-menu-card" [item]="classRoom"></app-class-card>
+            </div>
+          </div>
+      </div>
   </div>
 </div>
+
