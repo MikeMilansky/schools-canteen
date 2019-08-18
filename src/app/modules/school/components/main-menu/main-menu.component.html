@@ -1,4 +1,13 @@
 <div class="school-menu">
-    <app-school-header></app-school-header>
-  <app-school-card class="school-menu-card" [menu]="menu" *ngFor="let menu of menuList"></app-school-card>
+  <app-school-header></app-school-header>
+  <div class="school-menu__header">
+    <button class="btn btn-primary" (click)="updateMenu()">
+      Обновить меню
+    </button>
+  </div>
+  <app-school-card
+     class="school-menu-card"
+     [menu]="menu"
+     *ngFor="let menu of menuList"
+    ></app-school-card>
 </div>

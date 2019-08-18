@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuService } from 'src/app/modules/shared/services/menu/menu.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-main-menu',
@@ -10,7 +11,10 @@ import { MenuService } from 'src/app/modules/shared/services/menu/menu.service';
 export class MainMenuComponent implements OnInit {
 
   public menuList: [] = [];
-  constructor(private menuService: MenuService) {
+  constructor(
+    private toaster: ToastrService,
+    private menuService: MenuService
+  ) {
   }
 
   ngOnInit() {
@@ -21,5 +25,9 @@ export class MainMenuComponent implements OnInit {
     this.menuService.get().subscribe((result: any) => {
       this.menuList = result;
     });
+  }
+
+  public updateMenu(): void {
+    this.toaster.warning('К сожалению данная функция ещё не доступна');
   }
 }

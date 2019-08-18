@@ -37,7 +37,7 @@ export class CardComponent implements OnInit {
   }
 
   public save(): void {
-    this.toastr.warning('It haven\'t implemented yet');
+    this.toastr.warning('К сожалению данная функция ещё не доступна');
   }
 
   public toggleMode(): void {
