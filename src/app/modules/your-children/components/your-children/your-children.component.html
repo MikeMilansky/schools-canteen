@@ -1,13 +1,14 @@
-    <div class="yc-card card" *ngFor="let student of studentsArray">
-        <div class="card-body yc-card-body" [routerLink]="[student.Id,'student-menu']">
-            <div class="yc-img">
-                <img src="assets/img/user-placeholder.jpg" class="yc-picture">
-            </div>
-            <div class="yc-data">
-                <h3>{{student.Name}} {{student.Surname}}</h3>
-                <span>Школа: {{student.School}}, Класс: {{student.Class}}</span>
-                <!-- <li>{{student.MoneyBalance}}</li> -->
-            </div>
+<app-childer-header></app-childer-header>
+<div class="yc-card card" *ngFor="let student of studentsArray">
+    <div class="card-body yc-card-body" [routerLink]="[student.Id,'student-menu']">
+        <div class="yc-img">
+            <img src="assets/img/user-placeholder.jpg" class="yc-picture">
+        </div>
+        <div class="yc-data">
+            <h3>{{student.Name}} {{student.Surname}}</h3>
+            <span>Школа: {{student.School}}, Класс: {{student.Class}}</span>
+            <!-- <li>{{student.MoneyBalance}}</li> -->
         </div>
     </div>
-    <button type="button" (click)="exit()" class="btn btn-danger yc-exit-button">Выход</button>
+</div>
+

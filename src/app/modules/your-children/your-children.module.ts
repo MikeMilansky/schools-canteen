@@ -5,11 +5,12 @@ import { YourChildrenRoutingModule } from './your-children.routing';
 import { StudentMenuComponent } from './components/student-menu/student-menu.component';
 import { StudentMenuCardComponent } from './components/student-menu-card/student-menu-card.component';
 import { SharedModule } from '../shared/shared.module';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
 @NgModule({
-  declarations: [YourChildrenComponent, StudentMenuComponent, StudentMenuCardComponent],
+  declarations: [YourChildrenComponent, StudentMenuComponent, StudentMenuCardComponent, HeaderComponent],
   imports: [
     YourChildrenRoutingModule,
     SharedModule,

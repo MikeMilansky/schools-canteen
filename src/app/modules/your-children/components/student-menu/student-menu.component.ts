@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MenuService } from 'src/app/modules/shared/services/menu/menu.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-menu',
@@ -12,7 +14,11 @@ export class StudentMenuComponent implements OnInit {
   public total: string = '7.86';
 
   public menuList: [] = [];
-  constructor(private menuService: MenuService) {
+  constructor(
+    private router: Router,
+    private toaster: ToastrService,
+    private menuService: MenuService
+  ) {
   }
 
   ngOnInit() {
@@ -27,5 +33,10 @@ export class StudentMenuComponent implements OnInit {
 
   public onChangeValue($event): void {
 
+  }
+
+  public saveMenu(): void {
+    this.toaster.success('Меню успешно подтверждено');
+    this.router.navigate(['./your-children']);
   }
 }

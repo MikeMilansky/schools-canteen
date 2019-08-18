@@ -28,7 +28,7 @@
   </div>
   <button *ngIf="!isEditMode; else editModeButtons" (click)="toggleMode()" type="button" class="btn btn-primary">Редактировать</button>
   <ng-template #editModeButtons>
-    <button type="button" class="btn btn-success">Сохранить</button>
+    <button (click)="save()" type="button" class="btn btn-success">Сохранить</button>
     <button (click)="toggleMode()" type="button" class="btn btn-danger">Отменить</button>
   </ng-template>
 </div>
