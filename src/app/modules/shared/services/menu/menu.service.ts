@@ -44,7 +44,7 @@ export class MenuService {
               desc: 'Сбалансированный школьный завтрак. 250кКал, Белки: 10, Жиры: 20, Углеводы: 30',
               price: 2.59
             }],
-            date: moment(),
+            date: moment().add(1, 'days'),
           },
           {
             id: 1,
@@ -60,7 +60,7 @@ export class MenuService {
               desc: 'Сбалансированный школьный завтрак. 250кКал, Белки: 10, Жиры: 20, Углеводы: 30',
               price: 2.59
             }],
-            date: moment(),
+            date: moment().add(2, 'days'),
           },
           {
             id: 1,
@@ -76,7 +76,7 @@ export class MenuService {
               desc: 'Сбалансированный школьный завтрак. 250кКал, Белки: 10, Жиры: 20, Углеводы: 30',
               price: 2.59
             }],
-            date: moment(),
+            date: moment().add(3, 'days'),
           },
           {
             id: 1,
@@ -92,7 +92,7 @@ export class MenuService {
               desc: 'Сбалансированный школьный завтрак. 250кКал, Белки: 10, Жиры: 20, Углеводы: 30',
               price: 2.59
             }],
-            date: moment(),
+            date: moment().add(4, 'days'),
           },
         ];
         // return response.map((item: IDay) => {
