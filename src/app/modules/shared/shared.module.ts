@@ -7,16 +7,20 @@ import { LinkService } from './services/link-service/link-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { ToDatePipe } from './pipes/to-date.pipe';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RoleGuard } from './services/role-guard/role.guard';
 
 const declarations = [
   ToDatePipe,
-  HomeComponent
+  HomeComponent,
+  NotFoundComponent,
 ];
 
 const providers = [
   AuthGuard,
   LinkService,
   ToDatePipe,
+  RoleGuard,
   FeatureFlagService,
   FeatureFlagGuard,
 ];
