@@ -1,0 +1,23 @@
+.complex-description {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.form-control-container {
+  margin-bottom: 20px;
+  display: flex;
+  &:not(:last-child) {
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #ccc;
+  }
+}
+
+.complex-info {
+  flex: 5;
+  label {
+      cursor: pointer;
+  }
+}
+.complex-price {
+  flex: 1;
+}

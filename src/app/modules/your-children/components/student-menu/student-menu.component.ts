@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { MenuService } from 'src/app/modules/shared/services/menu/menu.service';
 
 @Component({
   selector: 'app-student-menu',
@@ -12,27 +11,18 @@ export class StudentMenuComponent implements OnInit {
   public days: any[] = [];
   public total: string = '7.86';
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpClient
-    ) { }
+  public menuList: [] = [];
+  constructor(private menuService: MenuService) {
+  }
 
   ngOnInit() {
+    this.initData();
+  }
 
-    this.http.get('https://schools-canteen-be.azurewebsites.net/api/v1/menu/getMenu')
-    .subscribe((response: any)=>
-      {
-        console.log(response)
-      }
-    )
-
-    this.days = [
-      {
-        items: [
-
-        ]
-      }
-    ]
+  public initData(): void {
+    this.menuService.get().subscribe((result: any) => {
+      this.menuList = result;
+    });
   }
 
   public onChangeValue($event): void {

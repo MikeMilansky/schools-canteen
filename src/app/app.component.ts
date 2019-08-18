@@ -6,6 +6,8 @@ import { FeatureFlagService } from './modules/shared/services/feature-flag/featu
 import { LinkService } from './modules/shared/services/link-service/link-service';
 import { Router } from '@angular/router';
 import { StorageService } from './modules/shared/services/storage-service/storage.service';
+import * as moment from 'moment';
+import 'moment/locale/ru';
 
 @Component({
   selector: 'app-root',
@@ -25,5 +27,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  constructor(private authService: AuthService, private router: Router, private featureFlagService: FeatureFlagService) {}
+  constructor(private authService: AuthService, private router: Router, private featureFlagService: FeatureFlagService) {
+    moment.locale('ru');
+  }
 }

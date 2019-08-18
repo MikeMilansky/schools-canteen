@@ -7,6 +7,7 @@ import { ClassesListComponent } from './components/classes-list/classes-list.com
 import { UploadMenuComponent } from './components/upload-menu/upload-menu.component';
 import { CardComponent } from './components/card/card.component';
 import { ClassCardComponent } from './components/class-card/class-card.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ClassCardComponent } from './components/class-card/class-card.component
   ],
   imports: [
     SchoolRoutingModule,
+    SharedModule,
     CommonModule,
   ]
 })

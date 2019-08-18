@@ -1,24 +1,6 @@
 <h1>Меню на неделю</h1>
-
-<div *ngFor="let day of days">
-    <app-student-menu-card
-      class="student-card"
-      item="day.items"
-      (changeEvent)="onChangeValue($event)">
-    </app-student-menu-card>
-</div>
-
-
-<app-student-menu-card class="student-card" (change)="onChangeValue($event)"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<div class="total">
-    <div class="container">
-        <div class="total-body row">
-            <h1>Итого: <b>{{ total }}</b> р</h1>
-            <button type="button" class="btn btn-primary" [routerLink]="['/your-children']">Подтвердить</button>
-        </div>
-    </div>
-</div>
+<app-student-menu-card
+  [menu]="menu"
+  *ngFor="let menu of menuList"
+  class="student-card"
+></app-student-menu-card>

@@ -1,59 +1,27 @@
 <div class="card">
-        <div class="card-body">
-            <h3 class="card-title">{{ date }}</h3>
-            <div>
-              <form>
-                  <div *ngFor="let item of items">
-                      <div class="form-control-container">
-                          <div class="complex-info">
-                              <label for="cx1">
-                                  <input type="radio" id="cx1" name="complex">
-                                  <b>&nbsp;{{ item.title }}</b>
-                              </label>
-                              <p class="card-text complex-description">
-                                {{ item.desc }}
-                              </p>
-                          </div>
-                          <div class="complex-price">
-                              Цена: <b>{{ item.price }}</b> р
-                          </div>
-                      </div>
-                    </div>
-                    <!-- <div class="form-control-container">
-                        <div class="complex-info">
-                            <label for="cx1">
-                                <input type="radio" id="cx1" name="complex">
-                                <b>&nbsp;Комплекс №1 (каша, булка, компот)</b>
-                            </label>
-                            <p class="card-text complex-description">Великолепный комплекс для начала дня. 300кКал, Белки: 0.5, Жиры: 20, Углеводы: 50</p>
-                        </div>
-                        <div class="complex-price">
-                            Цена: <b>1,54</b> р
-                        </div>
-                    </div>
-                    <div class="form-control-container">
-                        <div class="complex-info">
-                            <label for="cx2">
-                                <input type="radio" id="cx2" name="complex">
-                                <b>&nbsp;Комплекс №2 (сосика, коржик, чай)</b>
-                            </label>
-                            <p class="card-text complex-description">
-                                Сбалансированный школьный завтрак. 250кКал, Белки: 10, Жиры: 20, Углеводы: 30</p>
-                        </div>
-                        <div class="complex-price">
-                            Цена: <b>2,59</b> р
-                        </div>
-                    </div> -->
-                    <div class="form-control-container">
-                        <div class="complex-info">
-                            <label for="cx3">
-                                <input type="radio" id="cx3" name="complex">
-                                <b>&nbsp;Не будет в школе</b>
-                            </label>
-                        </div>
-                    </div>
-
-              </form>
+    <div class="card-body">
+        <h3 class="card-title">{{ menu.date | toDate:"LL" }}</h3>
+        <div>
+            <div *ngFor="let complex of menu.complex" class="form-control-container">
+                <div class="complex-info">
+                    <label for="cx-{{complex.id}}">
+                        <input type="radio" id="cx-{{complex.id}}" name="complex">
+                        <b>&nbsp;{{ complex.title }}</b>
+                    </label>
+                    <p class="card-text complex-description">{{ complex.desc }}</p>
+                </div>
+                <div class="complex-price">
+                    Цена: <b>{{ complex.price }}</b> р
+                </div>
             </div>
+            <div class="form-control-container">
+                <div class="complex-info">
+                    <label for="cx3">
+                        <input type="radio" id="cx3" name="complex">
+                        <b>&nbsp;Не будет в школе</b>
+                    </label>
+                </div>
+                <div></div>
         </div>
     </div>
+</div>

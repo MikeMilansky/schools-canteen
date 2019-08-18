@@ -1,7 +1,34 @@
-<div class="card" style="width: 18rem;">
+<div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{menu.date}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h3 class="card-title">{{menu.date | toDate:"LL"}}</h3>
+      <div *ngFor="let complex of menu.complex" [formGroup]="formGroup">
+          <div class="form-control-container">
+              <div class="complex-info">
+                <ng-container *ngIf="!isEditMode; else editModeInputs">
+                    <b>{{ complex.title }}</b>
+                    <p class="card-text complex-description">{{ complex.desc }}</p>
+                </ng-container>
+                <ng-template #editModeInputs>
+                  <label for="complex-{{complex.id}}">
+                    Название комплекса
+                  </label>
+                  <div class="input-group mb-3">
+                    <input id="complex-{{complex.id}}" formControlName="title-{{complex.id}}" type="text" class="form-control" placeholder="Название комплекса" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <label for="complex-{{complex.id}}">
+                    Описание комплекса
+                  </label>
+                  <div class="input-group mb-3">
+                    <input id="complex-{{complex.id}}" formControlName="desc-{{complex.id}}" type="text" class="form-control" placeholder="Описание комплекса" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </ng-template>
+              </div>
+          </div>
+      </div>
   </div>
+  <button *ngIf="!isEditMode; else editModeButtons" (click)="toggleMode()" type="button" class="btn btn-primary">Редактировать</button>
+  <ng-template #editModeButtons>
+    <button type="button" class="btn btn-success">Сохранить</button>
+    <button (click)="toggleMode()" type="button" class="btn btn-danger">Отменить</button>
+  </ng-template>
 </div>
