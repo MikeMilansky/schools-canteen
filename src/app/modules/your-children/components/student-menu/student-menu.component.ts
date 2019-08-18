@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-student-menu',
   templateUrl: './student-menu.component.html',
-  styleUrls: ['./student-menu.component.scss']
+  styleUrls: ['./student-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class StudentMenuComponent implements OnInit {
 

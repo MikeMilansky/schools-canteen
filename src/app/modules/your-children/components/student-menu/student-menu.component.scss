@@ -1,4 +1,25 @@
+:host:after {
+    display: none;
+}
 .student-card {
     margin: 20px 0;
     display: block;
+}
+
+.total {
+    border-top: 1px solid red;
+    padding-top: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 10vh;
+    background-color:#ccc;
+    box-shadow: 0 -5px 5px -5px #333;
+}
+
+.total-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
