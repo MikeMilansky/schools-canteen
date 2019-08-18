@@ -2,26 +2,29 @@
     <div class="card-body">
         <h3 class="card-title">{{ menu.date | toDate:"LL" }}</h3>
         <div>
-            <div *ngFor="let complex of menu.complex" class="form-control-container">
-                <div class="complex-info">
-                    <label for="cx-{{complex.id}}">
-                        <input type="radio" id="cx-{{complex.id}}" name="complex">
-                        <b>&nbsp;{{ complex.title }}</b>
-                    </label>
-                    <p class="card-text complex-description">{{ complex.desc }}</p>
-                </div>
-                <div class="complex-price">
-                    Цена: <b>{{ complex.price }}</b> р
-                </div>
-            </div>
-            <div class="form-control-container">
-                <div class="complex-info">
-                    <label for="cx3">
-                        <input type="radio" id="cx3" name="complex">
-                        <b>&nbsp;Не будет в школе</b>
-                    </label>
-                </div>
-                <div></div>
-        </div>
+          <form>
+              <div *ngFor="let complex of menu.complex" class="form-control-container">
+                  <div class="complex-info">
+                      <label for="cx-{{complex.id}}">
+                          <input type="radio" id="cx-{{complex.id}}" name="complex" value="id">
+                          <b>&nbsp;{{ complex.title }}</b>
+                      </label>
+                      <p class="card-text complex-description">{{ complex.desc }}</p>
+                  </div>
+                  <div class="complex-price">
+                      Цена: <b>{{ complex.price }}</b> р
+                  </div>
+              </div>
+              <div class="form-control-container">
+                  <div class="complex-info">
+                      <label for="cx3">
+                          <input type="radio" id="cx3" name="complex">
+                          <b>&nbsp;Не будет в школе</b>
+                      </label>
+                  </div>
+                  <div></div>
+          </div>
+          </form>
+
     </div>
 </div>
