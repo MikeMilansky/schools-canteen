@@ -1,8 +1,10 @@
-<div *ngFor="let classRoom of classList">
-  <div>
-    {{ classRoom | json }}
-    <div *ngFor="let item of classRoom.items">
-      {{ item | json }}
+<div>
+  <div *ngFor="let classRoom of classList">
+    <div class="app-class-room card">
+      <span>{{ classRoom.name }}</span>
+      <div *ngFor="let item of classRoom.items">
+        <app-class-card item="item"></app-class-card>
+      </div>
     </div>
   </div>
 </div>

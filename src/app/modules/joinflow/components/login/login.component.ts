@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
-
   public loginGroup: FormGroup;
   public loginControl: FormControl;
   public passwordControl: FormControl;

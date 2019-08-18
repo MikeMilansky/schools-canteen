@@ -9,6 +9,7 @@ body {
   :after {
     content: "";
     background: url('/assets/img/bg.jpg');
+    background-position: fixed;
     opacity: 0.03;
     background-size: 300px 300px;
     top: 0;
