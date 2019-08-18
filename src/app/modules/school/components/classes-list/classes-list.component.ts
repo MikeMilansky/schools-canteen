@@ -1,10 +1,19 @@
 import { Component, OnInit, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { IComplex } from 'src/app/modules/shared/interfaces/complex';
 import { HttpClient } from '@angular/common/http';
+import * as moment from 'moment';
 
 export interface IClassRomm {
   name: string;
-  items: IComplex[];
+  date: moment.Moment;
+  total: number;
+  items: IComplexCount[];
+}
+
+export interface IComplexCount {
+  id: number;
+  name: string;
+  count: number;
 }
 
 @Component({
@@ -33,21 +42,55 @@ export class ClassesListComponent implements OnInit {
     this.classList = [
       {
         name: '1A',
+        date: moment(),
+        total: 20,
         items: [
           {
             id: 1,
-            price: 2,
-            title: 'Комплекс 1',
-            desc: 'Вкусный завтрак'
+            name: 'Комлекс 1',
+            count: 5,
+          },
+          {
+            id: 1,
+            name: 'Комлекс 1',
+            count: 15,
           }
         ],
       },
-      // {
-      //   name: '1Б',
-      //   items: [
-
-      //   ],
-      // }
+      {
+        name: '1A',
+        date: moment(),
+        total: 20,
+        items: [
+          {
+            id: 1,
+            name: 'Комлекс 1',
+            count: 5,
+          },
+          {
+            id: 1,
+            name: 'Комлекс 1',
+            count: 15,
+          }
+        ],
+      },
+      {
+        name: '2Б',
+        date: moment(),
+        total: 20,
+        items: [
+          {
+            id: 1,
+            name: 'Комлекс 1',
+            count: 5,
+          },
+          {
+            id: 1,
+            name: 'Комлекс 1',
+            count: 15,
+          }
+        ],
+      },
     ];
   }
 }

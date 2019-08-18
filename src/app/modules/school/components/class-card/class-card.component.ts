@@ -1,9 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { IComplex } from 'src/app/modules/shared/interfaces/complex';
-
-export interface IComplexSchool extends IComplex {
-  total: number;
-}
+import { IClassRomm } from '../classes-list/classes-list.component';
 
 @Component({
   selector: 'app-class-card',
@@ -12,7 +9,7 @@ export interface IComplexSchool extends IComplex {
 })
 export class ClassCardComponent implements OnInit {
 
-  @Input() public item: IComplexSchool;
+  @Input() public item: IClassRomm;
 
   constructor() { }
 

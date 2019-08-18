@@ -1,18 +1,11 @@
 <div>
   <app-school-header></app-school-header>
-  <div class="school-menu-card">
-    <div>
-        <button (click)="onPrint()" class="btn btn-primary">
-            Распечатать
-        </button>
-    </div>
-    <div *ngFor="let classRoom of classList">
-      <div class="app-class-room card">
-        <span>{{ classRoom.name }}</span>
-        <div *ngFor="let item of classRoom.items">
-          <app-class-card item="item"></app-class-card>
-        </div>
-      </div>
-    </div>
+  <div>
+      <button (click)="onPrint()" class="btn btn-primary">
+          Распечатать
+      </button>
+  </div>
+  <div *ngFor="let classRoom of classList">
+    <app-class-card class="school-menu-card" [item]="classRoom"></app-class-card>
   </div>
 </div>

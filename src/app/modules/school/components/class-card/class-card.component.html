@@ -1,9 +1,23 @@
-<div class="app-classroom-complex-card card">
-    <div class="app-classroom-complex__title">
-        <span>{{ item.title }}</span>
-        <span>{{ item.total }}</span>
-    </div>
-    <div class="app-classroom-complex__desciption">
-        <span>{{ item.desc }}</span>
+<div class="card">
+    <div class="card-body">
+      <h3 class="card-title">Класс {{item.name}} - {{item.date | toDate:"LL"}}</h3>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Комплекс</th>
+              <th scope="col">Количество порций</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let complex of item.items">
+              <th scope="row">{{complex.name}}</th>
+              <td>{{complex.count}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Общее кол-во порций</th>
+              <td>{{item.total}}</td>
+            </tr>
+          </tbody>
+        </table>
     </div>
 </div>
