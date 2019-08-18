@@ -27,13 +27,13 @@ const routes: Routes = [
     path: 'your-children',
     loadChildren: () => import('./modules/your-children/your-children.module').then(m => m.YourChildrenModule),
     canActivate: [RoleGuard],
-    data: {role: WorkflowTypes.YOURCHILDREN}
+    data: {role: WorkflowTypes.YOURCHILDREN},
   },
   {
     path: 'school',
     loadChildren: () => import('./modules/school/school.module').then(m => m.SchoolModule),
     canActivate: [RoleGuard],
-    data: {role: WorkflowTypes.SCHOOL}
+    data: {role: WorkflowTypes.SCHOOL},
   },
   {
     path: '**',
