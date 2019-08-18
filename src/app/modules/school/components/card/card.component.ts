@@ -3,6 +3,7 @@ import { IDay } from 'src/app/modules/shared/interfaces/day';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { IComplex } from 'src/app/modules/shared/interfaces/complex';
 import * as _ from 'lodash';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-school-card',
@@ -15,7 +16,7 @@ export class CardComponent implements OnInit {
   public isEditMode: boolean = false;
   public formGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private toastr: ToastrService) { }
 
   public ngOnInit(): void {
       const titleControlGroup = this.menu.complex
@@ -36,7 +37,7 @@ export class CardComponent implements OnInit {
   }
 
   public save(): void {
-    console.warn('It haven\'t implemented yet');
+    this.toastr.warning('It haven\'t implemented yet');
   }
 
   public toggleMode(): void {

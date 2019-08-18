@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { IStudent } from '../../interfaces/IStudent';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/modules/shared/services/auth-service/auth.service';
 
 @Component({
   selector: 'app-your-children',
@@ -11,7 +12,7 @@ export class YourChildrenComponent implements OnInit {
 
   public studentsArray: IStudent[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit() {
     this.http.get('https://schools-canteen-be.azurewebsites.net/api/v1/students/getAll')
@@ -19,8 +20,12 @@ export class YourChildrenComponent implements OnInit {
       {
         this.studentsArray = response;
       }
-    )
+    );
 
+  }
+
+  public exit(): void {
+    this.authService.logout();
   }
 
 }

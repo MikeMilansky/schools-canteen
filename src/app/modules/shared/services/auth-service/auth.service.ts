@@ -7,6 +7,8 @@ import { WorkflowTypes } from '../../enums/workflow-types';
 import { ILogin } from '../../interfaces/login';
 import { getLink } from 'src/app/utils/get-link';
 import { StorageService } from '../storage-service/storage.service';
+import { LinkService } from '../link-service/link-service';
+import { Router } from '@angular/router';
 
 const defaultLogin = {
   role: WorkflowTypes.YOURCHILDREN
@@ -33,7 +35,12 @@ export class AuthService {
       );
   }
 
-  constructor(private http: HttpClient) {
+  public logout(): void {
+    StorageService.delete('USER');
+    this.router.navigateByUrl(LinkService.home());
+  }
+
+  constructor(private http: HttpClient, private router: Router) {
     this.loginData$ = new BehaviorSubject(null);
    }
 }
