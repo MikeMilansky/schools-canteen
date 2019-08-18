@@ -8,10 +8,17 @@ import { UploadMenuComponent } from './components/upload-menu/upload-menu.compon
 import { CardComponent } from './components/card/card.component';
 import { ClassCardComponent } from './components/class-card/class-card.component';
 import { SharedModule } from '../shared/shared.module';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    SchoolComponent, MainMenuComponent, ClassesListComponent, UploadMenuComponent, CardComponent, ClassCardComponent
+    SchoolComponent,
+    MainMenuComponent,
+    ClassesListComponent,
+    UploadMenuComponent,
+    CardComponent,
+    ClassCardComponent,
+    HeaderComponent
   ],
   imports: [
     SchoolRoutingModule,

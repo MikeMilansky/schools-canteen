@@ -1,9 +1,12 @@
 <div>
-  <div *ngFor="let classRoom of classList">
-    <div class="app-class-room card">
-      <span>{{ classRoom.name }}</span>
-      <div *ngFor="let item of classRoom.items">
-        <app-class-card item="item"></app-class-card>
+  <app-school-header></app-school-header>
+  <div class="school-menu-card">
+    <div *ngFor="let classRoom of classList">
+      <div class="app-class-room card">
+        <span>{{ classRoom.name }}</span>
+        <div *ngFor="let item of classRoom.items">
+          <app-class-card item="item"></app-class-card>
+        </div>
       </div>
     </div>
   </div>
