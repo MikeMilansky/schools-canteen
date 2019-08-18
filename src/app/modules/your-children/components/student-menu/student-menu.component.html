@@ -1,18 +1,30 @@
 <h1>Меню на неделю</h1>
-<app-childer-header></app-childer-header>
-<app-student-menu-card
-  [menu]="menu"
-  *ngFor="let menu of menuList"
-  class="student-card"
-></app-student-menu-card>
-<div class="total">
-    <div class="container">
-        <div class="total-body row">
-            <h1>Итого: <b>7.86</b> р</h1>
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-success" (click)="saveMenu()" [routerLink]="['/your-children']">Подтвердить</button>
-                <button type="button" class="btn btn-danger" [routerLink]="['/your-children']">Назад</button>
-            </div>
+<div class="container">
+    <div class="row">
+      <div class="col-3">
+          <app-childer-header></app-childer-header>
+        </div>
+        <div class="col-9">
+          <div class="student-card-item">
+              <app-student-menu-card
+                [menu]="menu"
+                *ngFor="let menu of menuList"
+                class="student-card"
+              ></app-student-menu-card>
+              <div class="total">
+                  <div class="container">
+                      <div class="total-body row">
+                          <h1>Итого: <b>7.86</b> р</h1>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                              <button type="button" class="btn btn-success" (click)="saveMenu()" [routerLink]="['/your-children']">Подтвердить</button>
+                              <button type="button" class="btn btn-danger" [routerLink]="['/your-children']">Назад</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
     </div>
 </div>
+
+

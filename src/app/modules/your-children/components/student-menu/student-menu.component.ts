@@ -27,7 +27,6 @@ export class StudentMenuComponent implements OnInit {
 
   public initData(): void {
     this.menuService.get().subscribe((result: any) => {
-      debugger;
       this.menuList = result;
     });
   }
