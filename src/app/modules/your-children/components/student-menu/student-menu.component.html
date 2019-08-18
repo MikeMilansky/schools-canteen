@@ -1,14 +1,2 @@
 <h1>Меню на неделю</h1>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<app-student-menu-card class="student-card"></app-student-menu-card>
-<div class="total">
-    <div class="container">
-        <div class="total-body row">
-            <h1>Итого: <b>7.86</b> р</h1>
-            <button type="button" class="btn btn-primary" [routerLink]="['/your-children']">Подтвердить</button>
-        </div>
-    </div>
-</div>
+<app-student-menu-card [menu]="menu" *ngFor="let menu of menuList" class="student-card"></app-student-menu-card>

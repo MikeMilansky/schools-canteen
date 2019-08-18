@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { MenuService } from 'src/app/modules/shared/services/menu/menu.service';
 
 @Component({
   selector: 'app-student-menu',
@@ -9,15 +9,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StudentMenuComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  public menuList: [] = [];
+  constructor(private menuService: MenuService) {
+  }
 
   ngOnInit() {
-    this.http.get('https://schools-canteen-be.azurewebsites.net/api/v1/menu/getMenu')
-    .subscribe((response: any)=>
-      {
-        console.log(response)
-      }
-    )
+    this.initData();
+  }
+
+  public initData(): void {
+    this.menuService.get().subscribe((result: any) => {
+      this.menuList = result;
+    });
   }
 
 }

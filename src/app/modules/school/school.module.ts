@@ -6,6 +6,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { ClassesListComponent } from './components/classes-list/classes-list.component';
 import { UploadMenuComponent } from './components/upload-menu/upload-menu.component';
 import { CardComponent } from './components/card/card.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { CardComponent } from './components/card/card.component';
   ],
   imports: [
     SchoolRoutingModule,
+    SharedModule,
     CommonModule,
   ]
 })

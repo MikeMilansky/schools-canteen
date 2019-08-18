@@ -6,13 +6,17 @@ import { FeatureFlagGuard } from './services/feature-flag-guard/feature-flag.gua
 import { LinkService } from './services/link-service/link-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
+import { ToDatePipe } from './pipes/to-date.pipe';
 
 const declarations = [
+  ToDatePipe,
+  HomeComponent
 ];
 
 const providers = [
   AuthGuard,
   LinkService,
+  ToDatePipe,
   FeatureFlagService,
   FeatureFlagGuard,
 ];
@@ -24,7 +28,7 @@ const deps = [
 ];
 
 @NgModule({
-  declarations: [...declarations, HomeComponent],
+  declarations: [...declarations],
   exports: [...declarations, ...deps],
   providers: [...providers],
   imports: [...deps]
